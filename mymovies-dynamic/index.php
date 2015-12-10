@@ -34,11 +34,9 @@
 		</div>
 
     </Text>
-	
-	<HR size=2 align=center width="100%">
-
-    <footer class="navbar-bottom">
-        <p class="text-center">Posted by: Julien Bontron</p>
+    
+	<footer>
+	<?php include("footer.php"); ?>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="lib/bootstrap/js/bootstrap.min.js"></script>
