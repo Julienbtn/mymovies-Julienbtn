@@ -12,31 +12,26 @@
 </head>
 
 <body>
- <header>
-    <?php include("en-tete.php"); ?>
- </header>
 
-    <Text class="row">
-	<div class="jumbotron">
-                    <div class="container">
-        <ul>
-        <h1>
-		<a href="Transporteur.php">Le Transporteur</a>
-		</h1>
-            <p>Le Transporteur est un film franco-américain de Corey Yuen et Louis Leterrier avec Jason Statham sortit en 2002</p>
-            <h1>
-         <a href="#"> Expendables </a> </h1>
-            <p>Expendables : Unité spéciale est un film d'action américain sorti en 2010, écrit et réalisé par Sylvester Stallone.</p>
-				<h1> <a href="#"> La Vengeance dans la peau </a> </h1>
-				<p>La Vengeance dans la peau est un film américano-allemand réalisé par Paul Greengrass et sorti en 2007. Il fait partie de la série de films inspirée des romans de Robert Ludlum et débutée avec La Mémoire dans la peau en 2002.</p>
-			</ul>
-			</div>
-		</div>
+    <?php 
+        include("./includes/en-tete.php");
+        include('./includes/functions.php');
 
-    </Text>
+        $bd = connectionbd();
+
+        foreach($bd->query('SELECT mov_id, mov_name, mov_description_short from movie') as $row) {
+            echo "<div class='film'>
+                    <div class='container'>
+                        <h2><a href='#'>$row[1]</a></h2>
+                        <p>$row[2]</p>
+                    </div>
+                </div>";
+        }
+
+    ?>
     
 	<footer>
-	<?php include("footer.php"); ?>
+	<?php include("includes/footer.php"); ?>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="lib/bootstrap/js/bootstrap.min.js"></script>

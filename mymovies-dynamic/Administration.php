@@ -10,11 +10,14 @@
 		<title>Administration</title>
 		<link rel="shortcut icon" type="image/x-icon" href="images/films.ico" />
 	</head>
+        
 
 	<body class="container">
-	   <header>
-		<?php include("en-tete.php"); ?>
-       </header>
+		<?php include("includes/en-tete.php"); 
+        include('./includes/functions.php');
+
+        $bd = connectionbd();
+        ?>
 			
 			<div class="container">
 				<h4>Administration</h4>
@@ -100,7 +103,7 @@
 			 
 			   
 			 <footer>
-			<?php include("footer.php"); ?>
+			<?php include("includes/footer.php"); ?>
 		</footer>
 		 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="lib/bootstrap/js/bootstrap.min.js"></script>

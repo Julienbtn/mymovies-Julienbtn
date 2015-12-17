@@ -10,11 +10,15 @@
     <title>Le Transporteur</title>
 	<link rel="shortcut icon" type="image/x-icon" href="images/films.ico" />
 </head>
+    
+    <?php 
+    include('./includes/functions.php');
+
+        $bd = connectionbd(); ?>
 
 <body>
-    <header>
-    <?php include("en-tete.php"); ?>
-        </header>
+
+    <?php include("includes/en-tete.php"); ?>
 
 <div class="container">
             <div class="jumbotron">
@@ -40,7 +44,7 @@
         </div>
 		
     <footer> 
-       <?php include("footer.php"); ?>
+       <?php include("includes/footer.php"); ?>
     </footer>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="lib/bootstrap/js/bootstrap.min.js"></script>
