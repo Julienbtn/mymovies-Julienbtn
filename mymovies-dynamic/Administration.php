@@ -14,9 +14,6 @@
 
 	<body class="container">
 		<?php include("includes/en-tete.php"); 
-        include('./includes/functions.php');
-
-        $bd = connectionbd();
         ?>
 			
 			<div class="container">
@@ -36,36 +33,57 @@
 								<td><h3>Année</h3></td>
 								<td><h3>Actions</h3></td>
 							</tr>
-							 <tr>
-							<td><a href='Transporteur.php'>Le Transporteur</a></td>
-							<td>Corey Yuen et Louis Leterrier</td>
-							<td>2002</td>
-							<td>
-								<button type="button" class="btn btn-info"><span class="glyphicon glyphicon-edit "></span> </button>
-								<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove "></span> </button>
-							</td>
-				</tr>
-							<tr>
-					<td><a href="#"> Expendables </a></td>
-					<td>Sylvester Stallone</td>
-					<td>2010</td>
-					<td>
-						<button type="button" class="btn btn-info"><span class="glyphicon glyphicon-edit "></span> </button>
-						<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove "></span> </button>
-					</td>
-				</tr>
-							 <tr>
-					<td><a href="#"> La Vengeance dans la peau </a></td>
-					<td> Paul Greengrass</td>
-					<td>2007</td>
-					<td>
-						<button type="button" class="btn btn-info"><span class="glyphicon glyphicon-edit "></span> </button>
-						<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove "></span> </button>
-					</td>
-				</tr>
-						   
-						</table>
-						</div>
+<?php
+						include 'includes/fonctions.php';
+						if (isset($_GET['film']))
+						{
+							connectionbd()->query('DELETE from movie WHERE mov_id='.$_GET['film'].';');
+						}
+						foreach(connectionbd()->query('SELECT mov_id, mov_title, mov_director, mov_year from movie order by mov_year DESC') as $row) {
+							echo "<tr>";
+								echo "<td><a href='movie.php?film=$row[0]'>$row[1]</a></td>";
+								echo "<td>$row[2]</td>";
+								echo "<td>$row[3]</td>";
+								echo "<td><a href='edit.php?film=$row[0]'><span class='glyphicon glyphicon-edit'></span></a> <a href='#'><span class='glyphicon glyphicon-remove' data-toggle='modal' data-target='#myModal$row[0]'></span></a></td>";
+							echo "</tr>";
+							
+							echo "<div class='modal fade' id='myModal$row[0]' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>";
+								echo "<div class='modal-dialog'>";
+									echo "<div class='modal-content'>";
+										echo "<div class='modal-header'>";
+											echo "<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>";
+											echo "<h4 class='modal-title' id='myModalLabel'>Confirmation de suppresion</h4>";
+										echo "</div>";
+										echo "<div class='modal-body'>";
+											echo "Voulez-vous vraiment supprimer le film $row[1]?";
+										echo "</div>";
+										echo "<div class='modal-footer'>";
+											echo "<button type='button' class='btn btn-default' data-dismiss='modal'>Annuler</button>";
+											echo "<a href='Administration.php?film=$row[0]'><button type='button' class='btn btn-primary'>Supprimer \"$row[1]\"</button></a>";
+										echo "</div>";
+									echo "</div>";
+								echo "</div>";
+							echo "</div>";
+						}
+						?>
+                    </table>
+                    </div>
+					
+					<!-- Modal -->
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+									<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+								</div>
+								<div class="modal-body">
+									Exemple de modal
+								</div>
+							</div><!-- /.modal-content -->
+						</div><!-- /.modal-dialog -->
+					</div><!-- /.modal -->
+                        
 						<div id="utilisateurs" class="tab-pane fade">
 						  <table class="table table-bordered table-hover">
 							<tr>

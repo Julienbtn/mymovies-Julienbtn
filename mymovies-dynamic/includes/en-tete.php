@@ -9,7 +9,7 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="#"><span class="glyphicon glyphicon-plus"></span> Ajouter un film</a></li>
+                <li><a href="addmovie.php"><span class="glyphicon glyphicon-plus"></span> Ajouter un film</a></li>
               </ul>
           <ul class="nav navbar-nav navbar-right">
               <li><a href="administration.php"> Administration</a></li>
