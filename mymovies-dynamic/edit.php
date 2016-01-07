@@ -51,7 +51,7 @@
 				
         ?>
 
-                <h3 class="text-center">Ajouter un film</h3>
+                <h3 class="text-center">Modifier un film</h3>
                 <div class="jumbotron">
                     <form method="post" action="#" enctype="multipart/form-data" class="form-horizontal">
                         <div class="form-group">
@@ -63,17 +63,13 @@
                         <div class="form-group">
                             <label for="descc" class="col-sm-2 control-label">Courte description</label>
                             <div class="col-sm-8">
-                                <textarea class="form-control" id="descc" placeholder="Courte description du film" required name="descc">
-                                    <?php echo $row[2]; ?>
-                                </textarea>
+                                <textarea class="form-control" id="descc" placeholder="Courte description du film" required name="descc"><?php echo $row[2]; ?></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="descl" class="col-sm-2 control-label">Description complète</label>
                             <div class="col-sm-8">
-                                <textarea rows="7" class="form-control" id="descl" placeholder="Longue description du film" required name="descl">
-                                    <?php echo $row[3]; ?>
-                                </textarea>
+                                <textarea rows="7" class="form-control" id="descl"placeholder="Longue description du film" required name="descl"><?php echo $row[3]; ?></textarea>
                             </div>
                         </div>
                         <div class="form-group">
