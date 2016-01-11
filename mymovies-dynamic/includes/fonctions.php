@@ -24,4 +24,21 @@
 		$img = str_replace("'", "\'",$img);
         connectionbd()->query("UPDATE movie SET mov_title='$titre', mov_description_short='$desc1', mov_description_long='$desc2', mov_director='$real', mov_year=$annee, mov_image='$img' WHERE mov_id=$id;");
     }
+
+function ajoutMembre($login,$mdp)
+{
+    $login = str_replace("'", "\'",$login);
+    $mdp = str_replace("'", "\'",$mdp);
+    connectionbd()->query("INSERT INTO membre values ('','$login','$mdp');");
+}
+
+function deconnection()
+{
+    
+    session_start();
+    session_unset();
+    session_destroy();
+    header('Location: index.php');
+    exit();
+}
 ?>

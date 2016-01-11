@@ -1,39 +1,45 @@
-	<!doctype html>
-	<html>
+<!doctype html>
+<html>
 
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-		<link href="css/style.css" rel="stylesheet">
-		<title>Administration</title>
-		<link rel="shortcut icon" type="image/x-icon" href="images/films.ico" />
-	</head>
-        
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <title>Administration</title>
+    <link rel="shortcut icon" type="image/x-icon" href="images/films.ico" />
+</head>
 
-	<body class="container">
-		<?php include("includes/en-tete.php"); 
+
+
+<?php include("includes/en-tete.php"); 
         ?>
-			
-			<div class="container">
-				<h4>Administration</h4>
-				</br>
-				<div class="table-responsive">
-					<ul class="nav nav-tabs">
-					  <li class="active"><a data-toggle="pill" href="#Films">Films</a></li>
-					  <li><a data-toggle="pill" href="#utilisateurs">Utilisateurs</a></li>
-					</ul>
-					<div class="tab-content">
-						<div id="Films" class="tab-pane fade in active">
-						  <table class="table table-bordered table-hover">
-							<tr>
-								<td><h3>Titre</h3></td>
-								<td><h3>Réalisateur(s)</h3></td>
-								<td><h3>Année</h3></td>
-								<td><h3>Actions</h3></td>
-							</tr>
-<?php
+
+    <body class="container">
+
+        <div class="container">
+            <h4>Administration</h4>
+            </br>
+            <div class="table-responsive">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="pill" href="#Films">Films</a></li>
+                    <li><a data-toggle="pill" href="#utilisateurs">Utilisateurs</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="Films" class="tab-pane fade in active">
+                        <table class="table table-bordered table-hover">
+                            <tr>
+                                <td>
+                                    <h3>Titre</h3></td>
+                                <td>
+                                    <h3>Réalisateur(s)</h3></td>
+                                <td>
+                                    <h3>Année</h3></td>
+                                <td>
+                                    <h3>Actions</h3></td>
+                            </tr>
+                            <?php
 						include 'includes/fonctions.php';
 						if (isset($_GET['film']))
 						{
@@ -66,65 +72,56 @@
 							echo "</div>";
 						}
 						?>
-                    </table>
+                        </table>
                     </div>
-					
-					<!-- Modal -->
-					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-						<div class="modal-dialog">
-							<div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-									<h4 class="modal-title" id="myModalLabel">Modal title</h4>
-								</div>
-								<div class="modal-body">
-									Exemple de modal
-								</div>
-							</div><!-- /.modal-content -->
-						</div><!-- /.modal-dialog -->
-					</div><!-- /.modal -->
-                        
-						<div id="utilisateurs" class="tab-pane fade">
-						  <table class="table table-bordered table-hover">
-							<tr>
-								<td><h3>Nom</h3></td>
-								<td><h3>Prénom</h3></td>
-								<td><h3>Pseudo</h3></td>
-								<td><h3>Actions</h3></td>
-							</tr>
-							<tr>
-								<td>Bontron</td>
-								<td>Julien</td>
-								<td>Administrateur</td>
-					 <td>
-						<button type="button" class="btn btn-info"><span class="glyphicon glyphicon-edit "></span> </button>
-						<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove "></span> </button>
-					</td>
-								</tr>
-						
-							<tr>
-								<td>Pesquet</td>
-								<td>Baptiste</td>
-								<td>Enseignant</td>
-								 <td>
-						<button type="button" class="btn btn-info"><span class="glyphicon glyphicon-edit "></span> </button>
-						<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove "></span> </button>
-					</td>
-								</tr>
-						</table>
-						</div>
-					  </div>
-					
-				</div>
-				</br>
-			</div>
-			 
-			   
-			 <footer>
-			<?php include("includes/footer.php"); ?>
-		</footer>
-		 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script src="lib/bootstrap/js/bootstrap.min.js"></script>
-	</body>
 
-	</html>
+
+
+                    <div id="utilisateurs" class="tab-pane fade">
+                        <table class="table table-bordered table-hover">
+                            <tr>
+                                <td>
+                                    <h3>Nom</h3></td>
+                                <td>
+                                    <h3>Prénom</h3></td>
+                                <td>
+                                    <h3>Pseudo</h3></td>
+                                <td>
+                                    <h3>Actions</h3></td>
+                            </tr>
+                            <tr>
+                                <td>Bontron</td>
+                                <td>Julien</td>
+                                <td>Administrateur</td>
+                                <td>
+                                    <button type="button" class="btn btn-info"><span class="glyphicon glyphicon-edit "></span> </button>
+                                    <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove "></span> </button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Pesquet</td>
+                                <td>Baptiste</td>
+                                <td>Enseignant</td>
+                                <td>
+                                    <button type="button" class="btn btn-info"><span class="glyphicon glyphicon-edit "></span> </button>
+                                    <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove "></span> </button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            </br>
+        </div>
+
+
+        <footer>
+            <?php include("includes/footer.php"); ?>
+        </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    </body>
+
+</html>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <title>MyMovies</title>
+    <title>Ajouter un film</title>
 	<link rel="shortcut icon" type="image/x-icon" href="images/films.ico" />
         
     </head>
@@ -17,8 +17,7 @@
         ?>
         
 
-        <!-- CONTENU -->
-		<div class="container">
+       
         <?php 
             if (isset($_POST['titre']))
             {
@@ -45,7 +44,8 @@
 				echo "<br/>";
             }
         ?>
-        
+         <!-- CONTENU -->
+		<div class="container">
             <h3 class="text-center">Ajouter un film</h3>
 			<div class="jumbotron">
 				<form method="post" action="addmovie.php" enctype="multipart/form-data"  class="form-horizontal">

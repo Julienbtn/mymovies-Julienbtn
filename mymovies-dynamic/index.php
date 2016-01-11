@@ -14,21 +14,17 @@
 <body>
 
     <?php
-  header('Location:connexion.php');
-  exit();
-?>
-        <?php
             include 'includes/fonctions.php';
         ?>
-            <!-- BARRE NAVIGATION !!! -->
-            <?php
+        <!-- BARRE NAVIGATION !!! -->
+        <?php
             include 'includes/en-tete.php';
         ?>
 
-                <!-- CONTENU -->
-                <div class="container">
+            <!-- CONTENU -->
+            <div class="container">
 
-                    <?php
+                <?php
         try{
             $bdd = new PDO('mysql:host=localhost;dbname=mymovies;charset=utf8', 'mymovies_user', 'secret');
         }
@@ -37,9 +33,9 @@
         }
                 ?>
 
-                        <h1>Mes films</h1>
-                        </br>
-                        <?php
+                    <h1>Mes films</h1>
+                    </br>
+                    <?php
                     foreach(connectionbd()->query('SELECT mov_id, mov_title, mov_description_short from movie order by mov_year DESC') as $row) {
                         echo "<div class='jumbotron'>";
                         echo "<div class='container'>";
@@ -50,13 +46,13 @@
                 }
                 ?>
 
-                            <!-- FOOTER !!! -->
-                            <?php
+                        <!-- FOOTER !!! -->
+                        <?php
             include 'includes/footer.php';
         ?>
 
-                                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-                                <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+                            <script src="lib/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>
