@@ -13,13 +13,14 @@
               </ul>
           <ul class="nav navbar-nav navbar-right">
               <li><a href="administration.php"> Administration</a></li>
+              <li><a href="connection.php"> Se connecter</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="#"><span class="glyphicon glyphicon-user"></span> Profil</a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Messages</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                <li><a href="deconnexion.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
               </ul>
             </li>
           </ul>

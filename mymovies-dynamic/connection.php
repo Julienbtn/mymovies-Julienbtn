@@ -21,10 +21,7 @@
                 include 'includes/fonctions.php';
         $bdd=connectionbd();
         $login = $_POST['login'];       
-        
         {
-
-
 	// on teste si une entrée de la base contient ce login 
 
             $stmtClient = $bdd->prepare("SELECT login FROM membre WHERE login='$login'");
@@ -34,25 +31,21 @@
         // si on obtient une réponse, alors l'utilisateur est un membre
     if ($stmtClient->rowCount() == 1) {
         $authOK = true;
-
         }
         // si on ne trouve aucune réponse, le visiteur s'est trompé soit dans son login, soit dans son mot de passe
         elseif ($stmtClient->rowCount() == 0) {
             $erreur = 'Compte non reconnu.';
         }
-        // sinon, alors la, il y a un gros problème :)
-
-
             }
-
     }
-            if (isset($msgErreur)) {
-                echo "Erreur : $msgErreur";
-            }
-
-            if (isset($_SESSION['login']))
-                echo "Connecté en tant que, '$login'";
-            else echo "Hors ligne";
+            
+    if (isset($msgErreur)) {       
+        echo "Erreur : $msgErreur";   
+    }
+    
+    if (isset($_SESSION['login']))     
+        echo "Connecté en tant que, '$login'";
+    else echo "Hors ligne";
 
     ?>
 
@@ -69,7 +62,7 @@
                 <div class="form-group">
                     <label for="real" class="col-sm-3 control-label">Mot de Passe</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" id="pass" placeholder="Mot de Passe" required name="pass">
+                        <input type="password" class="form-control" id="pass" placeholder="Mot de Passe" required name="pass">
                     </div>
                 </div>
                 <div class="col-sm-5">
@@ -81,7 +74,7 @@
 
         <?php
     if (isset($erreur)) echo '<br /><br />',$erreur;    
-        include 'includes/footer.php';   
+        include 'includes/footer.php'; 
         ?>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
             <script src="lib/bootstrap/js/bootstrap.min.js"></script>

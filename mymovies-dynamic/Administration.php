@@ -14,7 +14,8 @@
 
 
 <?php include("includes/en-tete.php"); 
-        ?>
+    ?>
+    
 
     <body class="container">
 
@@ -81,33 +82,16 @@
                         <table class="table table-bordered table-hover">
                             <tr>
                                 <td>
-                                    <h3>Nom</h3></td>
-                                <td>
-                                    <h3>Prénom</h3></td>
-                                <td>
-                                    <h3>Pseudo</h3></td>
-                                <td>
-                                    <h3>Actions</h3></td>
+                                    <h3>Liste des membres</h3></td>
                             </tr>
-                            <tr>
-                                <td>Bontron</td>
-                                <td>Julien</td>
-                                <td>Administrateur</td>
-                                <td>
-                                    <button type="button" class="btn btn-info"><span class="glyphicon glyphicon-edit "></span> </button>
-                                    <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove "></span> </button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>Pesquet</td>
-                                <td>Baptiste</td>
-                                <td>Enseignant</td>
-                                <td>
-                                    <button type="button" class="btn btn-info"><span class="glyphicon glyphicon-edit "></span> </button>
-                                    <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove "></span> </button>
-                                </td>
-                            </tr>
+                            <?php
+                            foreach(connectionbd()->query('SELECT login from membre') as $row1) {
+                                echo "<tr>";
+                                echo "<td>$row1[0]</td>";
+                                echo "</tr>";
+                            }
+                                
+                            ?>
                         </table>
                     </div>
                 </div>
