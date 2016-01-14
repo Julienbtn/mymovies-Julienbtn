@@ -24,15 +24,6 @@ session_start();
         ?>
             <!-- CONTENU -->
             <div class="container">
-                <?php
-        try{
-            $bdd = new PDO('mysql:host=localhost;dbname=mymovies;charset=utf8', 'mymovies_user', 'secret');
-        }
-        catch(Exception $e){
-            die('Erreur : ' . $e->getMessage());
-        }
-                ?>
-
                     <h1>Mes films</h1>
                     </br>
                     <?php
@@ -48,11 +39,11 @@ session_start();
                 echo "</div>";
                 }
                 ?>            
-
-                        <!-- FOOTER !!! -->
-                        <?php
-            include 'includes/footer.php';
-        ?>
+                        
+    <!-- FOOTER !!! -->                
+    <?php     
+    include 'includes/footer.php';
+    ?>
 
                             
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>            
