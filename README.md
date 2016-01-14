@@ -17,3 +17,6 @@ Projet Web pour le module ISI1-WEB.
 * Installer la base de données à l'aide des scripts SQL présents dans le répertoire `db/`.
 * Ajouter un script SQL `content.sql` permettant de remplir les tables de la BD avec vos données.
 
+## Hébergement de site sur OpenShift:
+Lien: https://mymovies-julienbtn.rhcloud.com/mymovies-dynamic/index.php
+
