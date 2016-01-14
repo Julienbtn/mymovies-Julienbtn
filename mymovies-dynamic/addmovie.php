@@ -47,7 +47,7 @@ session_start();
         ?>
          <!-- CONTENU -->
 		<div class="container">
-            <h3 class="text-center">Ajouter un film</h3>
+            <h1>Ajouter un film</h1>
 			<div class="jumbotron">
 				<form method="post" action="addmovie.php" enctype="multipart/form-data"  class="form-horizontal">
 				  <div class="form-group">

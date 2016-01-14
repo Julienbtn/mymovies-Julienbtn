@@ -54,7 +54,7 @@ session_start();
 				
         ?>
 
-                <h3 class="text-center">Modifier un film</h3>
+                <h1>Modifier un film</h1>
                 <div class="jumbotron">
                     <form method="post" action="#" enctype="multipart/form-data" class="form-horizontal">
                         <div class="form-group">
