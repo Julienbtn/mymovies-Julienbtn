@@ -1,6 +1,8 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,48 +13,48 @@
     <link rel="shortcut icon" type="image/x-icon" href="images/films.ico" />
 </head>
 
-<?php
-    session_start();  
-    include 'includes/en-tete.php';    
-    
+<?php  
+    include 'includes/en-tete.php';       
     // on teste si le visiteur a soumis le formulaire de connexion
-    if (isset($_POST['login']))
-            {
+    if (isset($_POST['login']))        
+    {
                 include 'includes/fonctions.php';
         $bdd=connectionbd();
         $login = $_POST['login'];       
+       
         {
 	// on teste si une entrée de la base contient ce login 
-
-            $stmtClient = $bdd->prepare("SELECT login FROM membre WHERE login='$login'");
+            $stmtClient = $bdd->prepare("SELECT login FROM membre WHERE login=?");
             $stmtClient->execute(array($login));
             $ligneClient = $stmtClient->fetch();
-
         // si on obtient une réponse, alors l'utilisateur est un membre
-    if ($stmtClient->rowCount() == 1) {
-        $authOK = true;
-        }
-        // si on ne trouve aucune réponse, le visiteur s'est trompé soit dans son login, soit dans son mot de passe
-        elseif ($stmtClient->rowCount() == 0) {
-            $erreur = 'Compte non reconnu.';
-        }
+            if ($stmtClient->rowCount() == 1) {
+                $authOK = true;
+                $_SESSION['login'] = $login;
             }
-    }
-            
+        // si on ne trouve aucune réponse, le visiteur s'est trompé dans son login
+            else 
+            {
+            $erreur = 'Compte non reconnu.';
+            }
+        }  
+    }      
     if (isset($msgErreur)) {       
         echo "Erreur : $msgErreur";   
     }
     
-    if (isset($_SESSION['login']))     
+    if (isset($_SESSION['login'])) {
         echo "Connecté en tant que, '$login'";
-    else echo "Hors ligne";
-
+    }    
+        else {
+            echo "Hors ligne"; 
+        }
+            
     ?>
-
     <body>
         <h1> Connection à l'espace membre : </h1>
         <div class="jumbotron">
-            <form method="post" action="connection.php" enctype="multipart/form-data" class="form-horizontal">
+            <form method="post" action="index.php" enctype="multipart/form-data" class="form-horizontal">
                 <div class="form-group">
                     <label for="real" class="col-sm-3 control-label">Login</label>
                     <div class="col-sm-6">

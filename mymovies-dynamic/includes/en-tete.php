@@ -13,7 +13,15 @@
               </ul>
           <ul class="nav navbar-nav navbar-right">
               <li><a href="administration.php"> Administration</a></li>
-              <li><a href="connection.php"> Se connecter</a></li>
+              <li> <?php if (isset($_SESSION['login'])) {?>
+                  <a href="#"> <?php echo $_SESSION['login']; ?> </a>
+              <?php }
+              else { ?>
+              <a href="connection.php"> Se connecter</a></li>
+              <?php
+            }
+                  ?>
+                  
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
               <ul class="dropdown-menu">

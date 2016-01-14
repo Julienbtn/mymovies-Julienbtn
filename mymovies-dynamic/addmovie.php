@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html>
     <head>
@@ -16,8 +19,6 @@
             include 'includes/en-tete.php';
         ?>
         
-
-       
         <?php 
             if (isset($_POST['titre']))
             {

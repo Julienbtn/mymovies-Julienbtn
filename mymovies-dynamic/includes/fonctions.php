@@ -12,7 +12,8 @@
 		$desc2 = str_replace("'", "\'",$desc2);
 		$real = str_replace("'", "\'",$real);
 		$img = str_replace("'", "\'",$img);
-        connectionbd()->query("INSERT INTO movie values ('','$titre', '$desc1', '$desc2', '$real', $annee, '$img');");
+        $stmtFilm = connectionbd()->prepare("INSERT INTO movie values ('', ? , ?, ?, ?, ?, ?);");
+        $stmtFilm->execute(array($titre,$desc1,$desc2,$real,$annee,$img));
     }
 	
 	function editfilm($id, $titre, $desc1, $desc2, $real, $annee, $img)
@@ -22,23 +23,16 @@
 		$desc2 = str_replace("'", "\'",$desc2);
 		$real = str_replace("'", "\'",$real);
 		$img = str_replace("'", "\'",$img);
-        connectionbd()->query("UPDATE movie SET mov_title='$titre', mov_description_short='$desc1', mov_description_long='$desc2', mov_director='$real', mov_year=$annee, mov_image='$img' WHERE mov_id=$id;");
+        $stmtFilmE = connectionbd()->prepare("UPDATE movie SET mov_title=?, mov_description_short=?, mov_description_long=?, mov_director=?, mov_year=?, mov_image=? WHERE mov_id=?;");
+        $stmtFilmE->execute(array($titre,$desc1,$desc2,$real,$annee,$img,$id));
     }
 
 function ajoutMembre($login,$mdp)
 {
     $login = str_replace("'", "\'",$login);
     $mdp = str_replace("'", "\'",$mdp);
-    connectionbd()->query("INSERT INTO membre values ('','$login','$mdp');");
+    $stmtMembre = connectionbd()->prepare("INSERT INTO membre values ('',?,?);");
+    $stmtMembre->execute(array($login,$mdp));
 }
 
-function deconnection()
-{
-    
-    session_start();
-    session_unset();
-    session_destroy();
-    header('Location: index.php');
-    exit();
-}
 ?>

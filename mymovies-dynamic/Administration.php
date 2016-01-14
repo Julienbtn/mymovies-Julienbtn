@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html>
 
@@ -12,15 +15,15 @@
 </head>
 
 
-
+ <body>
 <?php include("includes/en-tete.php"); 
     ?>
     
 
-    <body class="container">
+  
 
         <div class="container">
-            <h4>Administration</h4>
+            <h1>Administration</h1>
             </br>
             <div class="table-responsive">
                 <ul class="nav nav-tabs">
