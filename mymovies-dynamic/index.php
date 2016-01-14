@@ -15,7 +15,6 @@ session_start();
 </head>
 
 <body>
-
     <?php
             include 'includes/fonctions.php';
         ?>
@@ -23,10 +22,8 @@ session_start();
         <?php
             include 'includes/en-tete.php';
         ?>
-
             <!-- CONTENU -->
             <div class="container">
-
                 <?php
         try{
             $bdd = new PDO('mysql:host=localhost;dbname=mymovies;charset=utf8', 'mymovies_user', 'secret');
@@ -54,8 +51,8 @@ session_start();
             include 'includes/footer.php';
         ?>
 
-                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-                            <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+                            
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>            
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
 </body>
-
 </html>
