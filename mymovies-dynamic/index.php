@@ -37,14 +37,17 @@ session_start();
                     </br>
                     <?php
                     foreach(connectionbd()->query('SELECT mov_id, mov_title, mov_description_short from movie order by mov_year DESC') as $row) {
-                        echo "<div class='jumbotron'>";
+                        $row[0]=escape($row[0]);
+						$row[1]=escape($row[1]);
+						$row[2]=escape($row[2]);
+						echo "<div class='jumbotron'>";
                         echo "<div class='container'>";
-                        echo "<h2><a href='movie.php?film=$row[0]'>$row[1]</a></h2>";
+                        echo "<h3><a href='movie.php?film=$row[0]'>$row[1]</a></h3>";
                         echo "<p>$row[2]</p>";
                     echo "</div>";
                 echo "</div>";
                 }
-                ?>
+                ?>            
 
                         <!-- FOOTER !!! -->
                         <?php
