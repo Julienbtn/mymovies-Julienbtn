@@ -25,8 +25,16 @@ session_start();
                 <div class="row">
                     <?php
 						include 'includes/fonctions.php';
-                        foreach(connectionbd()->query('SELECT mov_title, mov_description_long, mov_image, mov_director, mov_year from movie where mov_id='.$_GET['film'].';') as $row) {
-                            echo "<div class='col-md-4'>";
+                        $req = connectionbd()->prepare("SELECT mov_title, mov_description_long, mov_image, mov_director, mov_year from movie where mov_id=?;");
+						$req->execute(array($_GET['film']));
+						$donnees = $req->fetchAll();
+						foreach($donnees as $row) {
+							$row[0]=escape($row[0]);
+							$row[1]=escape($row[1]);
+							$row[2]=escape($row[2]);
+							$row[3]=escape($row[3]);
+							$row[4]=escape($row[4]);
+							echo "<div class='col-md-4'>";
                             echo "<div class='thumbnail'>";
                               echo "<img src='$row[2]'>";
                             echo "</div>";
