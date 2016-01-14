@@ -6,7 +6,7 @@
         $dbName = getenv('OPENSHIFT_GEAR_NAME');
         $dbUser = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
         $dbPassword = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
-        $bdd =new PDO($dbHost, $dbUser, $dbPassword,$dbName);
+        $bdd =new PDO("mysql:host=$dbHost;dbname=$dbName",$dbUser,$dbPassword, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
         return $bdd;
     }
 
