@@ -13,7 +13,7 @@
                     <li><a href="addmovie.php"><span class="glyphicon glyphicon-plus"></span> Ajouter un film</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="administration.php"> Administration</a></li>
+                    <li><a href="Administration.php"> Administration</a></li>
                     <li>
                         <?php if (isset($_SESSION['login'])) {?>
                             <a href="#">
