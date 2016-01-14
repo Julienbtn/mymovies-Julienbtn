@@ -1,7 +1,12 @@
 <?php
     function connectionbd()
     {
-     $bdd =new PDO('mysql:host=localhost;dbname=mymovies', 'mymovies_user', 'secret', array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+        // MySQL config for OpenShift
+        $dbHost = getenv('OPENSHIFT_MYSQL_DB_HOST');
+        $dbName = getenv('OPENSHIFT_GEAR_NAME');
+        $dbUser = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
+        $dbPassword = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
+        $bdd =new PDO($dbHost, $dbUser, $dbPassword,$dbName);
         return $bdd;
     }
 
