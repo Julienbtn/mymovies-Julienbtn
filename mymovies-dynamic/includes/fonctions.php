@@ -10,6 +10,13 @@
         return $bdd;
     }
 
+function escape($valeur)
+{
+    // Convertit les caractères spéciaux en entités HTML
+    return htmlspecialchars($valeur, ENT_QUOTES, 'UTF-8', false);
+}
+
+
     function ajoutfilm($titre, $desc1, $desc2, $real, $annee, $img)
     {
 		$titre = str_replace("'", "\'",$titre);
