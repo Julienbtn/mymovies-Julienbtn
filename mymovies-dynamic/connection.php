@@ -17,8 +17,7 @@ session_start();
 
     <body>
 
-        <?php  
-        include 'includes/en-tete.php';       
+        <?php         
         // on teste si le visiteur a soumis le formulaire de connexion
         if (isset($_POST['login']))        
         {
@@ -81,7 +80,8 @@ session_start();
             </div>
         <?php
     
-        if (isset($erreur)) echo '<br /><br />',$erreur;    
+        if (isset($erreur)) echo '<br /><br />',$erreur;
+        include 'includes/en-tete.php';
         include 'includes/footer.php'; 
         
         ?>
