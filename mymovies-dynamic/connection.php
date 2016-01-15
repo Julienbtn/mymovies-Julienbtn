@@ -45,11 +45,11 @@ session_start();
         }      
     
         if (isset($msgErreur)) {       
-            echo "Erreur : $msgErreur";   
+            echo "Erreur : $erreur";   
         }
     
         if (isset($_SESSION['login'])) {
-            echo "Connecté en tant que, '$login'";
+            echo "Connecté en tant que, '$_SESSION['login']'";
         }    
         else {
             echo "Hors ligne"; 
