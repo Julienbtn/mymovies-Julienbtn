@@ -56,6 +56,10 @@ session_start();
             
         ?>
 
+        <?php
+                
+        include 'includes/en-tete.php';
+        ?>
 
             <h1> Connection à l'espace membre : </h1>
             <div class="jumbotron">
@@ -81,7 +85,6 @@ session_start();
         <?php
     
         if (isset($erreur)) echo '<br /><br />',$erreur;
-        include 'includes/en-tete.php';
         include 'includes/footer.php'; 
         
         ?>
