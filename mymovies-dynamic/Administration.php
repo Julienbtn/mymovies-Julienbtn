@@ -1,53 +1,50 @@
 <?php
 session_start();
 ?>
-<!doctype html>
-<html>
+    <!doctype html>
+    <html>
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <title>Administration</title>
-    <link rel="shortcut icon" type="image/x-icon" href="images/films.ico" />
-</head>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <title>Administration</title>
+        <link rel="shortcut icon" type="image/x-icon" href="images/films.ico" />
+    </head>
 
-
- <body>
-<?php include("includes/en-tete.php"); 
+    <body>
+        <?php include("includes/en-tete.php"); 
     ?>
-    
 
-  
-
-        <div class="container">
-            <h1>Administration</h1>
-            </br>
-            <div class="table-responsive">
-                <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="pill" href="#Films">Films</a></li>
-                    <li><a data-toggle="pill" href="#utilisateurs">Utilisateurs</a></li>
-                </ul>
-                <div class="tab-content">
-                    <div id="Films" class="tab-pane fade in active">
-                        <table class="table table-bordered table-hover">
-                            <tr>
-                                <td>
-                                    <h3>Titre</h3></td>
-                                <td>
-                                    <h3>Réalisateur(s)</h3></td>
-                                <td>
-                                    <h3>Année</h3></td>
-                                <td>
-                                    <h3>Actions</h3></td>
-                            </tr>
-                            <?php
+            <div class="container">
+                <h1>Administration</h1>
+                </br>
+                <div class="table-responsive">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="pill" href="#Films">Films</a></li>
+                        <li><a data-toggle="pill" href="#utilisateurs">Utilisateurs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="Films" class="tab-pane fade in active">
+                            <table class="table table-bordered table-hover">
+                                <tr>
+                                    <td>
+                                        <h3>Titre</h3></td>
+                                    <td>
+                                        <h3>Réalisateur(s)</h3></td>
+                                    <td>
+                                        <h3>Année</h3></td>
+                                    <td>
+                                        <h3>Actions</h3></td>
+                                </tr>
+                                <?php
 						include 'includes/fonctions.php';
 						if (isset($_GET['film']))
 						{
-							connectionbd()->query('DELETE from movie WHERE mov_id='.$_GET['film'].';');
+							$req = connectionbd()->prepare("DELETE from movie where mov_id=?;");
+							$req->execute(array($_GET['film']));
 						}
 						foreach(connectionbd()->query('SELECT mov_id, mov_title, mov_director, mov_year from movie order by mov_year DESC') as $row) {
 							echo "<tr>";
@@ -76,18 +73,16 @@ session_start();
 							echo "</div>";
 						}
 						?>
-                        </table>
-                    </div>
+                            </table>
+                        </div>
 
-
-
-                    <div id="utilisateurs" class="tab-pane fade">
-                        <table class="table table-bordered table-hover">
-                            <tr>
-                                <td>
-                                    <h3>Liste des membres</h3></td>
-                            </tr>
-                            <?php
+                        <div id="utilisateurs" class="tab-pane fade">
+                            <table class="table table-bordered table-hover">
+                                <tr>
+                                    <td>
+                                        <h3>Liste des membres</h3></td>
+                                </tr>
+                                <?php
                             foreach(connectionbd()->query('SELECT login from membre') as $row1) {
                                 echo "<tr>";
                                 echo "<td>$row1[0]</td>";
@@ -95,20 +90,19 @@ session_start();
                             }
                                 
                             ?>
-                        </table>
+                            </table>
+                        </div>
                     </div>
+
                 </div>
-
+                </br>
             </div>
-            </br>
-        </div>
 
-
-        <footer>
-            <?php include("includes/footer.php"); ?>
-        </footer>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+            <footer>
+                <?php include("includes/footer.php"); ?>
+            </footer>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+            <script src="lib/bootstrap/js/bootstrap.min.js"></script>
     </body>
 
-</html>
+    </html>
