@@ -95,7 +95,7 @@ session_start();
                                 <p>N'ajouter pas de fichier pour conserver l'image actuelle !</p>
                             </div>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-6">
                         </div>
                         <button type="submit" class="btn btn-default">Enregistrer</button>
                         <input type="hidden" name="img" value="<?php echo $row[6]; ?>">
