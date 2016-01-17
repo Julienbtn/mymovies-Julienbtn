@@ -21,7 +21,7 @@
                             </a>
                             <?php }
               else { ?>
-                                <a href="connection.php"> Se connecter</a></li>
+                                <a href="connexion.php"> Se connecter</a></li>
                     <?php
             }
                   ?>
