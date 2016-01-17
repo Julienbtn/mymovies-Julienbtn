@@ -11,7 +11,7 @@ session_start();
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
-        <title>Connection</title>
+        <title>Connexion</title>
         <link rel="shortcut icon" type="image/x-icon" href="images/films.ico" />
     </head>
 
@@ -61,9 +61,9 @@ session_start();
         include 'includes/en-tete.php';
         ?>
 
-                <h1> Connection à l'espace membre : </h1>
+                <h1> Connexion à l'espace membre : </h1>
                 <div class="jumbotron">
-                    <form method="post" action="connection.php" enctype="multipart/form-data" class="form-horizontal">
+                    <form method="post" action="connexion.php" enctype="multipart/form-data" class="form-horizontal">
                         <div class="form-group">
                             <label for="real" class="col-sm-3 control-label">Login</label>
                             <div class="col-sm-6">
@@ -78,7 +78,7 @@ session_start();
                         </div>
                         <div class="col-sm-5">
                         </div>
-                        <input type="submit" name="connection" value="Connection">
+                        <input type="submit" name="connexion" value="Connexion">
                         <a href="inscription.php">Vous inscrire</a>
                     </form>
                 </div>
