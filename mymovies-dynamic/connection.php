@@ -1,9 +1,9 @@
 <?php
 session_start();
 ?>
-   
-<!doctype html>
-<html>
+
+    <!doctype html>
+    <html>
 
     <head>
         <meta charset="utf-8">
@@ -56,41 +56,42 @@ session_start();
             
         ?>
 
-        <?php
+            <?php
                 
         include 'includes/en-tete.php';
         ?>
 
-            <h1> Connection à l'espace membre : </h1>
-            <div class="jumbotron">
-                <form method="post" action="index.php" enctype="multipart/form-data" class="form-horizontal">
-                    <div class="form-group">
-                        <label for="real" class="col-sm-3 control-label">Login</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="login" placeholder="Login" required name="login">
+                <h1> Connection à l'espace membre : </h1>
+                <div class="jumbotron">
+                    <form method="post" action="index.php" enctype="multipart/form-data" class="form-horizontal">
+                        <div class="form-group">
+                            <label for="real" class="col-sm-3 control-label">Login</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="login" placeholder="Login" required name="login">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="real" class="col-sm-3 control-label">Mot de Passe</label>
-                        <div class="col-sm-6">
-                            <input type="password" class="form-control" id="pass" placeholder="Mot de Passe" required name="pass">
+                        <div class="form-group">
+                            <label for="real" class="col-sm-3 control-label">Mot de Passe</label>
+                            <div class="col-sm-6">
+                                <input type="password" class="form-control" id="pass" placeholder="Mot de Passe" required name="pass">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-sm-5">
-                    </div>
-                    <input type="submit" name="connection" value="Connection">
-                    <a href="inscription.php">Vous inscrire</a>
-                </form>
-            </div>
-        <?php
+                        <div class="col-sm-5">
+                        </div>
+                        <input type="submit" name="connection" value="Connection">
+                        <a href="inscription.php">Vous inscrire</a>
+                    </form>
+                </div>
+                <?php
     
         if (isset($erreur)) echo '<br /><br />',$erreur;
         include 'includes/footer.php'; 
         
         ?>
-               
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>       
-        <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-    
-        </body>
-</html>
+
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+                    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+
+    </body>
+
+    </html>
