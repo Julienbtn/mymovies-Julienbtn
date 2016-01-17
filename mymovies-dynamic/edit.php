@@ -55,7 +55,7 @@ session_start();
 
                     <h1>Modifier un film</h1>
                     <div class="jumbotron">
-                        <form method="post" action="movie.php?film=$_GET[film]" enctype="multipart/form-data" class="form-horizontal">
+                        <form method="post" action="#" enctype="multipart/form-data" class="form-horizontal">
                             <div class="form-group">
                                 <label for="titre" class="col-sm-2 control-label">Titre</label>
                                 <div class="col-sm-8">
@@ -98,7 +98,7 @@ session_start();
                                     <p>N'ajouter pas de fichier pour conserver l'image actuelle !</p>
                                 </div>
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-sm-4">
                             </div>
                             <button type="submit" class="btn btn-default">Enregistrer</button>
                             <input type="hidden" name="img" value="<?php echo $row[6]; ?>">
