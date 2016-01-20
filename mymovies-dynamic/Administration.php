@@ -80,7 +80,8 @@ session_start();
                             <table class="table table-bordered table-hover">
                                 <tr>
                                     <td>
-                                        <h3>Liste des membres</h3></td>
+                                        <h3>Liste des membres</h3>
+                                    </td>
                                 </tr>
                                 <?php
                             foreach(connectionbd()->query('SELECT login from membre') as $row1) {
@@ -93,7 +94,6 @@ session_start();
                             </table>
                         </div>
                     </div>
-
                 </div>
                 </br>
             </div>
