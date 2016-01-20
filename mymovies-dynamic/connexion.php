@@ -63,7 +63,7 @@ session_start();
 
                 <h1> Connexion à l'espace membre : </h1>
                 <div class="jumbotron">
-                    <form method="post" action="connexion.php" enctype="multipart/form-data" class="form-horizontal">
+                    <form method="post" action="index.php" enctype="multipart/form-data" class="form-horizontal">
                         <div class="form-group">
                             <label for="real" class="col-sm-3 control-label">Login</label>
                             <div class="col-sm-6">
